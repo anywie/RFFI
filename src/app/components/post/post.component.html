@@ -1,0 +1,13 @@
+<div class="row">
+    <div *ngFor="let post of posts" class="col-lg-10 col-md-10 col-sm-6 post-column">
+        <div class="post-item" *ngFor="let content of post.contents">
+            <a class="post-link" (click)="goToArticle(content)">
+                <!-- <img class="img-fluid" src="http://localhost:1337{{post.contents[0].coverImage.url}}" alt="" /> -->
+                <div class="post-caption">
+                    <div class="post-caption-heading">{{content.title}}</div>
+                    <div class="post-caption-subheading text-muted">{{content.value}}</div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

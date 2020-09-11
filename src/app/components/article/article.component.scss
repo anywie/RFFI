@@ -1,0 +1,43 @@
+// .buttons-back {
+//     display: flex;
+//     justify-content: space-between;
+//     position: absolute;
+//     left: 0;
+//     width: 100%;
+
+
+// }
+
+.back_btn {
+    cursor: pointer;
+    position: fixed;
+    min-width: 115px;
+    left: 0;
+    height: 100%;
+    padding-top: 72px;
+    top: 0;
+    transition: linear .3s all;
+
+    &:hover {
+        background: rgba(0, 0, 0, .1);
+    }
+
+    .btn_group {
+        margin: 32px 0 0 16px;
+        display: flex;
+        align-items: center;
+    }
+}
+
+.close_btn {
+    position: fixed;
+    color: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    transition: linear .3s all;
+    right: 0;
+    font-size: 30px;
+
+    &:hover {
+        color: rgba(0, 0, 0, 0.9);
+    }
+}

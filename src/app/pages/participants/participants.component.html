@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="row">
+        <div class="school_card d-flex p-4" *ngFor="let author of authors">
+            <img class="img-fluid" src="http://localhost:1337{{author.photo.url}}" alt="" />
+            <div class="">
+                <div class="school_title m-3">{{author.authorName}}</div>
+                <div class="school_desc m-3">{{author.email}}</div>
+            </div>
+        </div>
+    </div>
+</div>

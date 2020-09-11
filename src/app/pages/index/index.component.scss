@@ -1,0 +1,22 @@
+.index-content {
+    display: flex;
+}
+
+.img-back {
+    display: flex;
+    flex-direction: column;
+
+    img {
+        align-self: center;
+
+        &:not(:last-child) {
+            margin-bottom: 40px;
+        }
+    }
+}
+
+//temp
+app-post {
+    overflow-x: hidden;
+    // overflow-y: scroll;
+}

@@ -1,0 +1,22 @@
+<p class="title">DRAG AND SCROLL!</p>
+<div class="demo-border">
+    <drag-scroll class="demo-one" drag-scroll-y-disabled="true" scrollbar-hidden="true"
+        (dsInitialized)="onDragScrollInitialized()" (indexChanged)="onIndexChanged($event)"
+        (reachesLeftBound)="leftBoundStat($event)" (reachesRightBound)="rightBoundStat($event)"
+        (snapAnimationFinished)="onSnapAnimationFinished()" (dragStart)="onDragStart()" (dragEnd)="onDragEnd()" #nav>
+        <div drag-scroll-item *ngFor="let image of imagelist" class="drag_scroll_item" (click)="clickItem(image)">
+            <img src="http://localhost:1337{{image.photo.url}}" />
+            <p>{{image.authorName}}</p>
+        </div>
+    </drag-scroll>
+</div>
+<div fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="center center">
+    <button mat-raised-button color="primary" [disabled]="leftNavDisabled" (click)="moveLeft()">left</button>
+    <button mat-raised-button color="primary" [disabled]="rightNavDisabled" (click)="moveRight()">right</button>
+</div>
+
+<div class="" *ngFor="let i of currItem.contents">
+    <h1>{{i.title}}</h1>
+    <h4>{{i.created_at | date}}</h4>
+    <p>{{i.value}}</p>
+</div>

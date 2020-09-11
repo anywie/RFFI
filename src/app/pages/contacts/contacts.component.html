@@ -1,0 +1,46 @@
+<h3>Свяжитесь с нами!</h3>
+<br>
+<hr><br>
+<form class="example-form" [formGroup]="clientForm" (ngSubmit)="onSubmit()">
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" required>
+    </mat-form-field>
+
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" placeholder="Ex. pat@example.com" required>
+        <!-- <mat-error *ngIf="form.email.errors.email && !form.email.errors.required">
+            Please enter a valid email address
+        </mat-error> -->
+        <!-- <mat-error *ngIf="form.email.errors.required">
+            Email is <strong>required</strong>
+        </mat-error> -->
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Telephone</mat-label>
+        <span matPrefix>+7 &nbsp;</span>
+        <input type="tel" matInput formControlName="phone" placeholder="(921) 123-22-33">
+        <mat-icon matSuffix>mode_edit</mat-icon>
+    </mat-form-field>
+
+    <p>
+        <mat-form-field class="example-full-width">
+            <mat-label>Subject</mat-label>
+            <input matInput formControlName="subject" required>
+        </mat-form-field>
+    </p>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Message</mat-label>
+        <textarea matInput #message maxlength="256" formControlName="message" placeholder="Ex. I need help with..."
+            required></textarea>
+        <mat-hint align="start"><strong>Don't upset</strong> </mat-hint>
+        <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" class="mt-3" type="submit">Отправить</button>
+</form>

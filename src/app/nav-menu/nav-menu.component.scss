@@ -1,0 +1,111 @@
+.nav-menu {
+    // background: #686FE2;
+    background: radial-gradient(at 110.74% 110.42%, rgba(142, 147, 245, 0.6) 0%, rgba(61, 169, 250, 0) 100%), radial-gradient(at 0% 0%, #2c32a8 0%, #686fe2 100%, rgba(5, 92, 155, 0) 100%), #757beb;
+    color: #fcfaff;
+    justify-content: space-between;
+    display: flex;
+    padding: 0 40px;
+    position: relative;
+    z-index: 2;
+
+    .nav-logo {
+        display: flex;
+
+        span {
+            margin-left: 10px;
+        }
+    }
+}
+
+ul {
+    list-style: none;
+    /*убираем маркеры списка*/
+    margin: 0;
+    /*убираем верхнее и нижнее поле, равное 1em*/
+    padding-left: 0;
+    /*убираем левый отступ, равный 40px*/
+    display: flex;
+    font-size: 14px;
+    font-weight: 300;
+
+    li {
+        flex-grow: 1;
+        padding: 0 16px;
+        margin: auto 0;
+        position: relative;
+
+        &:hover {
+            // background: url(../../assets/images/border-top.svg) no-repeat;
+            transition: all 0.3s ease-in-out;
+        }
+    }
+}
+
+a {
+    text-decoration: none;
+    /*убираем подчеркивание текста ссылок*/
+    display: block;
+    padding: 14px 0;
+    color: #fcfaff;
+    width: 100%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+}
+
+a#nav-publication {
+    transition: linear .3s all;
+    cursor: pointer;
+
+    &:hover {
+        i {
+            transform: rotate(180deg);
+        }
+    }
+
+    i {
+        font-size: 16px;
+        margin-left: 3px;
+        margin-top: 1px;
+        transition: linear .3s all;
+    }
+}
+
+.hidingNav {
+    position: absolute;
+    background: white;
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, .2), 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12);
+    border-radius: 4px;
+    transform-origin: left top;
+    padding: 8px 0;
+    display: flex;
+    color: rgba(0, 0, 0, .87);
+    z-index: 2;
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+    }
+
+    li {
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        padding-top: 0;
+        height: 48px;
+
+        &:hover {
+            background: rgba(0, 0, 0, .04);
+
+        }
+
+        a {
+            color: inherit;
+            padding: 0;
+            justify-content: flex-start;
+        }
+    }
+}

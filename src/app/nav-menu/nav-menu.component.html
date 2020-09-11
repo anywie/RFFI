@@ -1,0 +1,20 @@
+<div class="nav-menu">
+    <div class="nav-logo"><a href="/"><img src="../../assets/images/logo.svg" alt=""><span>Цифровизация и <br>обучение
+                математике</span></a></div>
+    <ul>
+        <li (mouseenter)="mouseEvent($event)" (mouseleave)="mouseEvent($event)"><a id="nav-publication">Публикации
+                <i class="material-icons">keyboard_arrow_down</i></a>
+            <div class="hidingNav d-none" [ngClass]="hidingNav">
+                <ul>
+                    <li *ngFor="let item of selectNav">
+                        <a [routerLink]='item.link' (click)="changeValue(item.value)">{{item.value}}</a></li>
+                </ul>
+            </div>
+        </li>
+        <li><a routerLink="/links" routerLinkActive="active-navlink">Связь со школами</a></li>
+        <li><a routerLink="/help" routerLinkActive="active-navlink">Полезные ссылки</a></li>
+        <li><a routerLink="/participant" routerLinkActive="active-navlink">Участники</a></li>
+        <li><a routerLink="/prolect" routerLinkActive="active-navlink">Проект</a></li>
+        <li><a routerLink="/contacts" routerLinkActive="active-navlink">Обратная связь</a></li>
+    </ul>
+</div>
