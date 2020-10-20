@@ -1,20 +1,41 @@
-<p class="title">DRAG AND SCROLL!</p>
-<div class="demo-border">
-    <drag-scroll class="demo-one" drag-scroll-y-disabled="true" scrollbar-hidden="true"
-        (dsInitialized)="onDragScrollInitialized()" (indexChanged)="onIndexChanged($event)"
-        (reachesLeftBound)="leftBoundStat($event)" (reachesRightBound)="rightBoundStat($event)"
-        (snapAnimationFinished)="onSnapAnimationFinished()" (dragStart)="onDragStart()" (dragEnd)="onDragEnd()" #nav>
-        <div drag-scroll-item *ngFor="let image of imagelist" class="drag_scroll_item" (click)="clickItem(image)">
-            <img src="http://localhost:1337{{image.photo.url}}" />
-            <p>{{image.authorName}}</p>
-        </div>
-    </drag-scroll>
+<div class="position-relative btn-container">
+    <button id="left_btn_corousel" mat-fab color="white" [disabled]="leftNavDisabled" (click)="moveLeft()">
+        <img src="../../../assets/images/arrow.svg" style="transform: rotate(180deg);">
+    </button>
+    <div class="demo-border">
+        <drag-scroll class="demo-one" drag-scroll-y-disabled="true" scrollbar-hidden="true"
+            (dsInitialized)="onDragScrollInitialized()" (indexChanged)="onIndexChanged($event)"
+            (reachesLeftBound)="leftBoundStat($event)" (reachesRightBound)="rightBoundStat($event)"
+            (snapAnimationFinished)="onSnapAnimationFinished()" (dragStart)="onDragStart()" (dragEnd)="onDragEnd()"
+            #nav>
+            <div drag-scroll-item class="drag_scroll_item" [ngClass]="currItem=='get_all_posts' ? 'active-img' : ''"
+                (click)="getAllPost()">
+                <div class="get_all_btn">
+                    <img src="../../../assets/images/group_all.svg" style="background-color: #4AA6FF;" />
+                </div>
+                <p>Показать всех</p>
+            </div>
+            <div drag-scroll-item *ngFor="let image of imagelist" class="drag_scroll_item"
+                [ngClass]="currItem==image ? 'active-img' : ''" (click)="clickItem(image)">
+                <img src="http://localhost:1337{{image.photo.url}}" />
+                <p>{{image.authorName}}</p>
+            </div>
+        </drag-scroll>
+    </div>
+    <button id="right_btn_corousel" mat-fab color="white" [disabled]="rightNavDisabled" (click)="moveRight()"><img
+            src="../../../assets/images/arrow.svg">
+    </button>
 </div>
-<div fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="center center">
-    <button mat-raised-button color="primary" [disabled]="leftNavDisabled" (click)="moveLeft()">left</button>
-    <button mat-raised-button color="primary" [disabled]="rightNavDisabled" (click)="moveRight()">right</button>
-</div>
+<!-- <div fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="center center">
+    <button mat-fab color="white" [disabled]="leftNavDisabled" (click)="moveLeft()">
+        <img src="../../../assets/images/arrow.svg" style="transform: rotate(180deg);">
+    </button>
+    <button mat-fab color="white" [disabled]="rightNavDisabled" (click)="moveRight()"><img
+            src="../../../assets/images/arrow.svg">
+        </button>
+</div> -->
 
+<app-post *ngIf="currItem==''||currItem=='get_all_posts'"></app-post>
 <div class="" *ngFor="let i of currItem.contents">
     <h1>{{i.title}}</h1>
     <h4>{{i.created_at | date}}</h4>

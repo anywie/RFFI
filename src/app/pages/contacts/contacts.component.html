@@ -30,14 +30,14 @@
     <p>
         <mat-form-field class="example-full-width">
             <mat-label>Subject</mat-label>
-            <input matInput formControlName="subject" required>
+            <input matInput formControlName="subject">
         </mat-form-field>
     </p>
 
     <mat-form-field class="example-full-width">
         <mat-label>Message</mat-label>
-        <textarea matInput #message maxlength="256" formControlName="message" placeholder="Ex. I need help with..."
-            required></textarea>
+        <textarea matInput #message maxlength="256" formControlName="message"
+            placeholder="Ex. I need help with..."></textarea>
         <mat-hint align="start"><strong>Don't upset</strong> </mat-hint>
         <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
     </mat-form-field>

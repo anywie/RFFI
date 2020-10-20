@@ -16,19 +16,6 @@ export class PublicationsComponent implements OnInit {
   disabled;
   xDisabled;
   yDisabled;
-  // imagelist = [
-  //   'luke.png',
-  //   'chubaka.png',
-  //   'boba.png',
-  //   'c3po.png',
-  //   'leia.png',
-  //   'obi.png',
-  //   'r2d2.png',
-  //   'storm.png',
-  //   'varder.png',
-  //   'yoda.png',
-  //   'yolo.png'
-  // ];
   imagelist: any = [];
   leftNavDisabled = false;
   rightNavDisabled = false;
@@ -37,24 +24,18 @@ export class PublicationsComponent implements OnInit {
 
   @ViewChild('nav', { read: DragScrollComponent }) ds: DragScrollComponent;
   constructor(
-    matIconRegistry: MatIconRegistry,
-    sanitizer: DomSanitizer,
     private authorSvc: GetAllService,
     private firstRender: GetAllService
-  ) {
-    matIconRegistry
-      .addSvgIcon('github',
-        sanitizer.bypassSecurityTrustResourceUrl('/assets/img/github.svg'))
-      .registerFontClassAlias('fontawesome', 'fa');
-  }
+  ) { }
   // constructor() { }
   ngOnInit(): void {
     this.authorSvc.getAllAuthors().subscribe(res => {
       this.imagelist = res;
     });
-    this.firstRender.getAuthors(2).subscribe(res => {
-      this.currItem = res;
-    });
+    // this.firstRender.getAuthors(2).subscribe(res => {
+    //   this.currItem = res;
+    // });
+    this.currItem = "";
   }
 
   // ngAfterViewChecked(): void {
@@ -67,6 +48,9 @@ export class PublicationsComponent implements OnInit {
     console.log('item clicked');
     this.currItem = item;
     console.log(item.contents.id);
+  }
+  getAllPost(): void {
+    this.currItem = "get_all_posts";
   }
 
   remove(): void {

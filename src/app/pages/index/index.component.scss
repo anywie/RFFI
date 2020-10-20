@@ -15,8 +15,15 @@
     }
 }
 
-//temp
-app-post {
-    overflow-x: hidden;
-    // overflow-y: scroll;
+
+.post-column {
+    margin: 0 40px;
+
+    .post-caption-heading {
+        color: #222793;
+        font-weight: 500;
+        font-size: 16px;
+        margin-top: 20px;
+        margin-bottom: 4px;
+    }
 }

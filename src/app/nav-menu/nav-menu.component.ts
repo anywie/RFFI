@@ -8,25 +8,9 @@ import { Component, OnInit, HostListener, Input } from '@angular/core';
 export class NavMenuComponent implements OnInit {
   hidingNav: string;
 
-  selectNav = [
-    {
-      link: '/publications',
-      value: 'Публикации'
-    },
-    {
-      link: '/',
-      value: 'Лента событий'
-    },
-    {
-      link: '/media',
-      value: 'Видеозаписи'
-    }
-  ];
-
-  currentValue = this.selectNav[1].value;
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
   // toggleCal(toggle_items) {
@@ -38,16 +22,4 @@ export class NavMenuComponent implements OnInit {
   //       this.hidingClass = 'd-none'
   //     }
   //   }
-  mouseEvent(e) {
-    console.log(e.type);
-    if (e.type === 'mouseenter') {
-      this.hidingNav = 'd-block';
-    }
-    else {
-      this.hidingNav = 'd-none';
-    }
-  }
-  changeValue(str) {
-    this.currentValue = str;
-  }
 }

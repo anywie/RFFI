@@ -11,7 +11,7 @@ export class MediaService {
 
   constructor(private http: HttpClient) { }
 
-  getAllVideos() {
+  getAllVideos(): any {
     return this.http.get(`${environment.apiUrl}/ms`).pipe(map(res => res));
   }
 }

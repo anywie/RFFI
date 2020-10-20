@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PostService } from 'src/app/services/post.service';
+import { ContentService } from 'src/app/services/content.service';
+import { GetAllService } from 'src/app/services/get-all.service';
 import { Router } from '@angular/router';
 
 export class Item {
@@ -14,22 +15,23 @@ export class Item {
 })
 export class PostComponent implements OnInit {
   posts: any = [];
-  post: any;
+  // post: any;
   landingPostId = 2;
   item: Item = new Item();
+  authorName = "";
 
-  constructor(private postSvc: PostService, private router: Router) { }
+  constructor(private contentSvc: ContentService, private authorSvc: GetAllService, private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     // this.postSvc.getPost(this.landingPostId).subscribe(res => {
     //   this.post = res;
     // });
-    this.postSvc.getAllPosts().subscribe(res => {
+    this.contentSvc.getAllContents().subscribe(res => {
       this.posts = res;
     });
   }
 
-  goToArticle(myItem: Item) {
+  goToArticle(myItem: Item): void {
 
     this.router.navigate(
       ['/article', myItem.id]

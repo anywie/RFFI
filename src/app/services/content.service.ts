@@ -10,11 +10,11 @@ export class ContentService {
 
   constructor(private http: HttpClient) { }
 
-  getAllContents() {
+  getAllContents(): any {
     return this.http.get(`${environment.apiUrl}/contents`).pipe(map(res => res));
   }
 
-  getContent(contentId) {
+  getContent(contentId): any {
     return this.http.get(`${environment.apiUrl}/contents/${contentId}`).pipe(map(res => res));
   }
 }

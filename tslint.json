@@ -8,6 +8,7 @@
       ]
     },
     "array-type": false,
+    "no-trailing-whitespace": false,
     "arrow-return-shorthand": true,
     "curly": true,
     "deprecation": {
@@ -77,7 +78,7 @@
       "as-needed"
     ],
     "quotemark": [
-      true,
+      false,
       "single"
     ],
     "semicolon": {
@@ -99,8 +100,7 @@
       "call-signature"
     ],
     "typedef-whitespace": {
-      "options": [
-        {
+      "options": [{
           "call-signature": "nospace",
           "index-signature": "nospace",
           "parameter": "nospace",

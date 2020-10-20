@@ -4,13 +4,13 @@
 }
 
 .demo-one {
-    height: 185px;
+    height: auto;
     background-color: #FFFFFF;
 }
 
 .demo-one img {
-    height: 150px;
-    width: 150px;
+    height: 75px;
+    width: 75px;
 }
 
 @media (max-width: 1000px) {
@@ -85,10 +85,11 @@
 }
 
 .drag_scroll_item {
-    padding: 0 20px;
+    padding: 10px 20px;
     text-align: center;
     transition: .3s all ease-in-out;
     cursor: pointer;
+    position: relative;
 
     img {
         border-radius: 50%;
@@ -96,5 +97,58 @@
 
     &:hover {
         background: #E0E6FF;
+    }
+}
+
+.active-img {
+    // border-top-left-radius: 10px;
+    // border-top-right-radius: 10px;
+    background: #E0E6FF;
+
+    &::after {
+        content: '';
+        border-bottom: 3px solid #4AA6FF;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+    }
+}
+
+.btn-container {
+    button {
+        position: absolute;
+        top: calc(50% - 28px);
+
+        &#left_btn_corousel {
+            left: -66px;
+        }
+
+        &#right_btn_corousel {
+            right: -66px;
+        }
+    }
+}
+
+drag-scroll {
+
+    .get_all_btn {
+        border-radius: 50%;
+        background-color: #4AA6FF;
+        padding: 15px;
+        height: 75px;
+        width: 75px;
+        margin: auto;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+    }
+
+    p {
+        margin-top: 10px;
+        color: #646464;
     }
 }

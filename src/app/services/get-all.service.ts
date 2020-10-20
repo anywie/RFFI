@@ -10,15 +10,15 @@ export class GetAllService {
 
   constructor(private http: HttpClient) { }
 
-  getAllSchools() {
+  getAllSchools(): any {
     return this.http.get(`${environment.apiUrl}/schools`).pipe(map(res => res));
   }
 
-  getAllAuthors() {
+  getAllAuthors(): any {
     return this.http.get(`${environment.apiUrl}/authors`).pipe(map(res => res));
   }
 
-  getAuthors(contentId) {
+  getAuthor(contentId): any {
     return this.http.get(`${environment.apiUrl}/authors/${contentId}`).pipe(map(res => res));
   }
 }

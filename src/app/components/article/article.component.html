@@ -1,16 +1,29 @@
 <!-- <div class="buttons-back"> -->
+<div class="container">
+    <div class="back_btn" (click)="backClicked()">
+        <div class="btn_group">
+            <i class="material-icons">navigate_before</i>
+            <span>Назад</span>
+        </div>
+    </div>
 
-<div class="back_btn" (click)="backClicked()">
-    <div class="btn_group">
-        <i class="material-icons">navigate_before</i>
-        <span>Назад</span>
+    <i class="material-icons close_btn mr-5" (click)="backClicked()">close</i>
+    <!-- </div> -->
+    <div class="article_content">
+        <div class="article_content-header d-flex">
+            <img class="img-fluid" src="http://localhost:1337{{article.author.photo.url}}" alt="" />
+            <div class="d-flex flex-column">
+                <a>{{article.author.authorName}}</a>
+                <span>{{article.created_at | date}}</span>
+            </div>
+        </div>
+        <div class="article-view">
+            <div class="article-caption-heading">
+                <h1>{{article.title}}</h1>
+            </div>
+
+            <img class="img-fluid" src="http://localhost:1337{{article.coverImage.url}}" alt="" />
+            <div class="article-caption-subheading">{{article.value}}</div>
+        </div>
     </div>
 </div>
-
-<i class="material-icons close_btn mr-5" (click)="backClicked()">close</i>
-<!-- </div> -->
-
-<h1>{{article.title}}</h1>
-
-<img class="img-fluid" src="http://localhost:1337{{article.coverImage.url}}" alt="" />
-<h4>{{article.value}}</h4>
