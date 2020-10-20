@@ -10,11 +10,11 @@ export class PageService {
 
   constructor(private http: HttpClient) { }
 
-  getAllPages() {
+  getAllPages(): any {
     return this.http.get(`${environment.apiUrl}/pages`).pipe(map(res => res));
   }
 
-  getPage(pageId) {
+  getPage(pageId): any {
     return this.http.get(`${environment.apiUrl}/pages/${pageId}`).pipe(map(res => res));
   }
 }

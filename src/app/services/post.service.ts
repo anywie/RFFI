@@ -10,11 +10,11 @@ export class PostService {
 
   constructor(private http: HttpClient) { }
 
-  getAllPosts() {
+  getAllPosts(): any {
     return this.http.get(`${environment.apiUrl}/posts`).pipe(map(res => res));
   }
 
-  getPost(postId) {
+  getPost(postId): any {
     return this.http.get(`${environment.apiUrl}/posts/${postId}`).pipe(map(res => res));
   }
 }
