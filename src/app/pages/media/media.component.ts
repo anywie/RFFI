@@ -27,7 +27,7 @@ export class MediaComponent implements OnInit {
     });
   }
 
-  transform(id: string) {
+  transform(id: string): any {
     this.dangerousVideoUrl = 'https://www.youtube.com/embed/' + id;
     return this.sanitizer.bypassSecurityTrustResourceUrl(this.dangerousVideoUrl);
   }

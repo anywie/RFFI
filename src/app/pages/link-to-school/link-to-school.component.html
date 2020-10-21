@@ -2,7 +2,7 @@
     <div class="row">
         <div class="school_card" *ngFor="let school of schools">
             <div class="school_title m-3">{{school.title}}</div>
-            <img class="img-fluid" src="http://localhost:1337{{school.img.url}}" alt="" />
+            <img class="img-fluid" src="https://sheltered-island-10238.herokuapp.com{{school.img[0].url}}" alt="" />
             <div class="school_desc m-3">{{school.description}}</div>
         </div>
     </div>

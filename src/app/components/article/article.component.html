@@ -11,7 +11,7 @@
     <!-- </div> -->
     <div class="article_content">
         <div class="article_content-header d-flex">
-            <img class="img-fluid" src="http://localhost:1337{{article.author.photo.url}}" alt="" />
+            <img class="img-fluid" src="https://sheltered-island-10238.herokuapp.com{{article.author.photo[0].url}}" alt="" />
             <div class="d-flex flex-column">
                 <a>{{article.author.authorName}}</a>
                 <span>{{article.created_at | date}}</span>
@@ -22,7 +22,7 @@
                 <h1>{{article.title}}</h1>
             </div>
 
-            <img class="img-fluid" src="http://localhost:1337{{article.coverImage.url}}" alt="" />
+            <img class="img-fluid" src="https://sheltered-island-10238.herokuapp.com{{article.coverImage[0].url}}" alt="" />
             <div class="article-caption-subheading">{{article.value}}</div>
         </div>
     </div>

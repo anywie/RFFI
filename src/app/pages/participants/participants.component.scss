@@ -1,8 +1,19 @@
+.row {
+    justify-content: space-between;
+}
+
 .school_card {
     box-shadow: 0 2px 1px -1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
+    min-width: 280px;
+    margin: 10px;
 
     img {
         max-width: 100px;
         align-self: center
+    }
+
+    .school_desc {
+        font-weight: 300;
+        font-size: 13px;
     }
 }

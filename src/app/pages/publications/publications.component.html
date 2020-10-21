@@ -17,7 +17,7 @@
             </div>
             <div drag-scroll-item *ngFor="let image of imagelist" class="drag_scroll_item"
                 [ngClass]="currItem==image ? 'active-img' : ''" (click)="clickItem(image)">
-                <img src="http://localhost:1337{{image.photo.url}}" />
+                <img src="https://sheltered-island-10238.herokuapp.com{{image.photo[0].url}}" />
                 <p>{{image.authorName}}</p>
             </div>
         </drag-scroll>
