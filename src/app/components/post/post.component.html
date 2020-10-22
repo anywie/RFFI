@@ -1,6 +1,6 @@
 <div class="row">
     <div class="post-column">
-        <div class="post-item" *ngFor="let content of posts">
+        <div class="post-item" *ngFor="let content of currentAuthor">
             <a class="post-link" (click)="goToArticle(content)">
                 <!-- <img class="img-fluid" src="http://localhost:1337{{post.contents[0].coverImage.url}}" alt="" /> -->
                 <div class="post-caption d-flex">
@@ -20,5 +20,6 @@
                 </div>
             </a>
         </div>
+
     </div>
 </div>

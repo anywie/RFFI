@@ -8,7 +8,9 @@ import { GetAllService } from 'src/app/services/get-all.service';
 })
 export class ParticipantsComponent implements OnInit {
   authors: any = [];
-
+  showPopUp = false;
+  curentPartc: any;
+  currItem: any = [];
   constructor(private pageSvc: GetAllService) {
   }
 
@@ -16,5 +18,12 @@ export class ParticipantsComponent implements OnInit {
     this.pageSvc.getAllAuthors().subscribe(res => {
       this.authors = res;
     });
+    this.curentPartc = this.authors[0];
+  }
+
+  ShowPopUp(author: any): void{
+    this.showPopUp = !this.showPopUp;
+    this.curentPartc = author;
+    this.currItem = author.contents;
   }
 }

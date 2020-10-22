@@ -90,6 +90,8 @@
     transition: .3s all ease-in-out;
     cursor: pointer;
     position: relative;
+    min-width: 143px;
+    max-width: 143px;
 
     img {
         border-radius: 50%;
@@ -147,8 +149,13 @@ drag-scroll {
 
     }
 
-    p {
+    .author_name {
         margin-top: 10px;
         color: #646464;
+        overflow: hidden;
     }
+}
+
+.mat-fab.mat-button-disabled.mat-button-disabled {
+    background-color: transparent !important;
 }

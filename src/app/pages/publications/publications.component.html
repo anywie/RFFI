@@ -8,17 +8,21 @@
             (reachesLeftBound)="leftBoundStat($event)" (reachesRightBound)="rightBoundStat($event)"
             (snapAnimationFinished)="onSnapAnimationFinished()" (dragStart)="onDragStart()" (dragEnd)="onDragEnd()"
             #nav>
-            <div drag-scroll-item class="drag_scroll_item" [ngClass]="currItem=='get_all_posts' ? 'active-img' : ''"
+            <div drag-scroll-item class="drag_scroll_item" [ngClass]="getAllposts ? 'active-img' : ''"
                 (click)="getAllPost()">
-                <div class="get_all_btn">
-                    <img src="../../../assets/images/group_all.svg" style="background-color: #4AA6FF;" />
-                </div>
-                <p>Показать всех</p>
+                <!-- <div class="d-flex flex-column"> -->
+                    <div class="get_all_btn">
+                        <img src="../../../assets/images/group_all.svg" style="background-color: #4AA6FF;" />
+                    </div>
+                    <div class="author_name">Показать всех</div>
+                <!-- </div> -->
             </div>
-            <div drag-scroll-item *ngFor="let image of imagelist" class="drag_scroll_item"
-                [ngClass]="currItem==image ? 'active-img' : ''" (click)="clickItem(image)">
-                <img src="https://sheltered-island-10238.herokuapp.com{{image.photo[0].url}}" />
-                <p>{{image.authorName}}</p>
+            <div drag-scroll-item *ngFor="let image of imagelist" class="drag_scroll_item" (click)="clickItem(image)"
+                [ngClass]="currItem==image.contents ? 'active-img' : ''">
+                <!-- <div class="d-flex flex-column"> -->
+                    <img src="https://sheltered-island-10238.herokuapp.com{{image.photo[0].url}}" />
+                    <div class="author_name">{{image.authorName}}</div>
+                <!-- </div> -->
             </div>
         </drag-scroll>
     </div>
@@ -26,18 +30,5 @@
             src="../../../assets/images/arrow.svg">
     </button>
 </div>
-<!-- <div fxLayout="row" fxLayoutGap="5px" fxLayoutAlign="center center">
-    <button mat-fab color="white" [disabled]="leftNavDisabled" (click)="moveLeft()">
-        <img src="../../../assets/images/arrow.svg" style="transform: rotate(180deg);">
-    </button>
-    <button mat-fab color="white" [disabled]="rightNavDisabled" (click)="moveRight()"><img
-            src="../../../assets/images/arrow.svg">
-        </button>
-</div> -->
 
-<app-post *ngIf="currItem==''||currItem=='get_all_posts'"></app-post>
-<div class="" *ngFor="let i of currItem.contents">
-    <h1>{{i.title}}</h1>
-    <h4>{{i.created_at | date}}</h4>
-    <p>{{i.value}}</p>
-</div>
+<app-post [currentAuthor]=currItem></app-post>

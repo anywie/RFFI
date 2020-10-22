@@ -6,7 +6,6 @@
     display: flex;
     padding: 0 40px;
     position: relative;
-    z-index: 2;
 
     .nav-logo {
         display: flex;
@@ -107,5 +106,11 @@ a#nav-publication {
             padding: 0;
             justify-content: flex-start;
         }
+
+
     }
+}
+
+a.active-navlink {
+    font-weight:500;
 }

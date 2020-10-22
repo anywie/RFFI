@@ -6,6 +6,7 @@
     box-shadow: 0 2px 1px -1px rgba(0, 0, 0, .2), 0 1px 1px 0 rgba(0, 0, 0, .14), 0 1px 3px 0 rgba(0, 0, 0, .12);
     min-width: 280px;
     margin: 10px;
+    cursor: pointer;
 
     img {
         max-width: 100px;
@@ -15,5 +16,64 @@
     .school_desc {
         font-weight: 300;
         font-size: 13px;
+    }
+}
+
+.overlay {
+    position: fixed;
+    z-index: 1;
+    min-height: 100%;
+    max-height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(36, 48, 59, 0.47);
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.popup-user {
+    position: absolute;
+    top: 10%;
+    height: auto;
+    z-index: 2;
+    background: white;
+    max-width: 1140px;
+    width: 100%;
+    border-radius: 4px;
+    box-shadow: 0 1px 8px rgba(77, 77, 77, 0.5);
+    min-height: 60%;
+
+    .close-btn {
+        position: absolute;
+        top: 0;
+        right: 3px;
+        z-index: 9999;
+        cursor: pointer;
+        padding: 10px;
+        transition: .3s all ease-in;
+
+        &:hover {
+            color: gray;
+        }
+    }
+
+    .popup_body {
+        padding: 10px 13% 55px;
+
+        .popup_header {
+            font-size: 24px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        img {
+            max-height: 250px;
+        }
+
+        .popup_body_additional {
+            white-space: break-spaces;
+        }
     }
 }

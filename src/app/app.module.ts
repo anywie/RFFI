@@ -34,6 +34,8 @@ import { PublicationsComponent } from './pages/publications/publications.compone
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ArticleComponent } from './components/article/article.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MatTabsModule } from '@angular/material/tabs';
 
 @NgModule({
   declarations: [
@@ -67,7 +69,9 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
     MatCommonModule,
     MatIconModule,
     MatSlideToggleModule,
-    MatToolbarModule
+    MatToolbarModule,
+    FontAwesomeModule,
+    MatTabsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

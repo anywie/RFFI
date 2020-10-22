@@ -2,6 +2,7 @@ import { ConditionalExpr } from '@angular/compiler';
 import { AfterViewInit, Component, OnInit, ViewChild, AfterViewChecked } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
+import { ContentService } from 'src/app/services/content.service';
 import { DragScrollComponent } from 'ngx-drag-scroll';
 import { GetAllService } from '../../services/get-all.service';
 import { environment } from '../../../environments/environment';
@@ -22,11 +23,13 @@ export class PublicationsComponent implements OnInit {
   rightNavDisabled = false;
   index = 0;
   currItem: any = [];
+  getAllposts = true;
 
   @ViewChild('nav', { read: DragScrollComponent }) ds: DragScrollComponent;
   constructor(
     private authorSvc: GetAllService,
-    private firstRender: GetAllService
+    private firstRender: GetAllService,
+    private contentSvc: ContentService
   ) { }
   // constructor() { }
   ngOnInit(): void {
@@ -36,7 +39,9 @@ export class PublicationsComponent implements OnInit {
     // this.firstRender.getAuthors(2).subscribe(res => {
     //   this.currItem = res;
     // });
-    this.currItem = "";
+    this.contentSvc.getAllContents().subscribe(res => {
+      this.currItem = res;
+    });
   }
 
   // ngAfterViewChecked(): void {
@@ -46,12 +51,14 @@ export class PublicationsComponent implements OnInit {
   // }
 
   clickItem(item): void {
-    console.log('item clicked');
-    this.currItem = item;
-    console.log(item.contents.id);
+    this.currItem = item.contents;
+    this.getAllposts = false;
   }
   getAllPost(): void {
-    this.currItem = "get_all_posts";
+    this.contentSvc.getAllContents().subscribe(res => {
+      this.currItem = res;
+    });
+    this.getAllposts = true;
   }
 
   remove(): void {

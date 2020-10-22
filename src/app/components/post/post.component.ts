@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ContentService } from 'src/app/services/content.service';
 import { GetAllService } from 'src/app/services/get-all.service';
 import { Router } from '@angular/router';
@@ -19,6 +19,7 @@ export class PostComponent implements OnInit {
   landingPostId = 2;
   item: Item = new Item();
   authorName = "";
+  @Input() currentAuthor: any[];
 
   constructor(private contentSvc: ContentService, private authorSvc: GetAllService, private router: Router) { }
 

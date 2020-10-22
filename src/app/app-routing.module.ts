@@ -25,6 +25,8 @@ const routes: Routes = [
   { path: 'links', component: LinkToSchoolComponent },
   { path: 'help', component: HelpComponent },
   { path: 'participant', component: ParticipantsComponent },
+  { path: 'participant/:id/info', component: ParticipantsComponent },
+  { path: 'participant/:id/publications', component: ParticipantsComponent },
   { path: 'project', component: ProjectComponent },
   { path: 'publications', component: PublicationsComponent },
   { path: 'article/:id', component: ArticleComponent },

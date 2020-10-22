@@ -27,6 +27,5 @@ export class ArticleComponent implements OnInit {
 
   backClicked(): void {
     this.location.back();
-    console.log('woow');
   }
 }
