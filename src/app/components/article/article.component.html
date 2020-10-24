@@ -32,7 +32,9 @@
                     <button mat-flat-button (click)="nextPage()" [disabled]="page === totalPages" class="ml-2">Next</button>
                 </div>
                 <pdf-viewer [src]="article.pdf[0].url" [show-borders]="true" [show-all]="false" [original-size]="true"
-                    [page]="page" (after-load-complete)="afterLoadComplete($event)" style="display: block;">
+                    [page]="page" 
+                    [zoom] = "0.7"
+                    (after-load-complete)="afterLoadComplete($event)" style="display: block;">
                 </pdf-viewer>
             </div>
         </div>

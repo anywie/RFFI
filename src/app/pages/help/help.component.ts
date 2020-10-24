@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { GetAllService } from '../../services/get-all.service';
+import { ContentService } from '../../services/content.service';
 
 @Component({
   selector: 'app-help',
@@ -10,14 +10,12 @@ import { GetAllService } from '../../services/get-all.service';
   
 export class HelpComponent implements OnInit {
   allPost: any = [];
-
-  constructor(private allPosts: GetAllService, private router: Router) { }
+boolAthr = false;
+  constructor(private allPosts: ContentService, private router: Router) { }
 
   ngOnInit(): void {
     this.allPosts.getAllContents().subscribe(res => {
       this.allPost = res;
     });
   }
-
-
 }

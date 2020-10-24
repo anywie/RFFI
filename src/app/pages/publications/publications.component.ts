@@ -24,6 +24,7 @@ export class PublicationsComponent implements OnInit {
   index = 0;
   currItem: any = [];
   getAllposts = true;
+boolAthr = true;
 
   @ViewChild('nav', { read: DragScrollComponent }) ds: DragScrollComponent;
   constructor(
@@ -40,7 +41,7 @@ export class PublicationsComponent implements OnInit {
     //   this.currItem = res;
     // });
     this.contentSvc.getAllContents().subscribe(res => {
-      this.currItem = res;
+      this.currItem = res; // ???
     });
   }
 

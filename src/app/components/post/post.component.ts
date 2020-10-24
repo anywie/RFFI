@@ -20,6 +20,7 @@ export class PostComponent implements OnInit {
   item: Item = new Item();
   authorName = "";
   @Input() currentAuthor: any[];
+  @Input() boolAuthor: boolean;
 
   constructor(private contentSvc: ContentService, private authorSvc: GetAllService, private router: Router) { }
 
@@ -30,6 +31,7 @@ export class PostComponent implements OnInit {
     this.contentSvc.getAllContents().subscribe(res => {
       this.posts = res;
     });
+    console.log(this.boolAuthor);
   }
 
   goToArticle(myItem: Item): void {
