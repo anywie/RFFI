@@ -21,6 +21,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 // Drag&Scoll carousel
 import { DragScrollModule } from 'ngx-drag-scroll';
 
+// pdf
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 // MDB Angular Free
 // import { WavesModule, ModalModule, CarouselModule } from 'angular-bootstrap-md';
 // components
@@ -36,6 +38,7 @@ import { ArticleComponent } from './components/article/article.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatTabsModule } from '@angular/material/tabs';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -72,6 +75,8 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatToolbarModule,
     FontAwesomeModule,
     MatTabsModule,
+    MatGridListModule,
+    PdfViewerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

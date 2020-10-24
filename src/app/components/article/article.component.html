@@ -11,9 +11,9 @@
     <!-- </div> -->
     <div class="article_content">
         <div class="article_content-header d-flex">
-            <img class="img-fluid" src="https://sheltered-island-10238.herokuapp.com{{article.author.photo[0].url}}" alt="" />
+            <img class="img-fluid" src="{{article.authors[0].photo[0].url}}" alt="" />
             <div class="d-flex flex-column">
-                <a>{{article.author.authorName}}</a>
+                <a>{{article.authors[0].authorName}}</a>
                 <span>{{article.created_at | date}}</span>
             </div>
         </div>
@@ -22,8 +22,22 @@
                 <h1>{{article.title}}</h1>
             </div>
 
-            <img class="img-fluid" src="https://sheltered-island-10238.herokuapp.com{{article.coverImage[0].url}}" alt="" />
+            <img class="img-fluid" src="{{article.coverImage[0].url}}" alt="" />
             <div class="article-caption-subheading">{{article.value}}</div>
+         
+            <div *ngIf="isLoaded" style="text-align: center;">
+  <button (click)="prevPage()" [disabled]="page === 1">Prev</button>
+  <span>{{ page }} / {{ totalPages }}</span>
+  <button (click)="nextPage()" [disabled]="page === totalPages">Next</button>
+</div>
+             <pdf-viewer [src]="article.pdf[0].url" 
+              
+              [show-borders]="true"
+              [show-all]="false"
+              [original-size]="true"
+              [page]="page"
+              (after-load-complete)="afterLoadComplete($event)"
+              style="display: block;"></pdf-viewer>
         </div>
     </div>
 </div>

@@ -20,7 +20,7 @@
             <div drag-scroll-item *ngFor="let image of imagelist" class="drag_scroll_item" (click)="clickItem(image)"
                 [ngClass]="currItem==image.contents ? 'active-img' : ''">
                 <!-- <div class="d-flex flex-column"> -->
-                    <img src="https://sheltered-island-10238.herokuapp.com{{image.photo[0].url}}" />
+                    <img src="{{image.photo[0].url}}" />
                     <div class="author_name">{{image.authorName}}</div>
                 <!-- </div> -->
             </div>

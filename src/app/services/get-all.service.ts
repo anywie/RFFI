@@ -21,4 +21,8 @@ export class GetAllService {
   getAuthor(contentId): any {
     return this.http.get(`${environment.apiUrl}/authors/${contentId}`).pipe(map(res => res));
   }
+
+  getAllContents(): any { // all articles
+    return this.http.get(`${environment.apiUrl}/all-contents`).pipe(map(res => res));
+  }
 }

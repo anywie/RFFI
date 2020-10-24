@@ -2,7 +2,7 @@
     <div class="post-column">
         <div class="post-item" *ngFor="let content of currentAuthor">
             <a class="post-link" (click)="goToArticle(content)">
-                <!-- <img class="img-fluid" src="http://localhost:1337{{post.contents[0].coverImage.url}}" alt="" /> -->
+                <!-- <img class="img-fluid" src="{{post.contents[0].coverImage.url}}" alt="" /> -->
                 <div class="post-caption d-flex">
                     <div class="post-value">
                         <div class="post-header d-flex">
@@ -15,7 +15,7 @@
                         <div class="post-caption-subheading text-muted">{{content.value}}</div>
                     </div>
                     <div class="post-caption-media" *ngIf="content.coverImage != null ? 'true': ''">
-                        <img class="img-fluid" src="https://sheltered-island-10238.herokuapp.com{{content.coverImage[0].url}}" alt="" />
+                        <img class="img-fluid" src="{{content.coverImage[0].url}}" alt="" />
                     </div>
                 </div>
             </a>
