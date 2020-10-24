@@ -10,8 +10,8 @@
     <i class="material-icons close_btn mr-5" (click)="backClicked()">close</i>
     <!-- </div> -->
     <div class="article_content">
-        <div class="article_content-header d-flex">
-            <img class="img-fluid" src="{{article.authors[0].photo[0].url}}" alt="" />
+        <div class="article_content-header d-flex" *ngIf="article.authors != null">
+            <img *ngIf="article.authors[0].photo[0] != null" class="img-fluid" src="{{article.authors[0].photo[0].url}}" alt="" />
             <div class="d-flex flex-column">
                 <a>{{article.authors[0].authorName}}</a>
                 <span>{{article.created_at | date}}</span>
@@ -22,7 +22,7 @@
                 <h1>{{article.title}}</h1>
             </div>
 
-            <img class="img-fluid" src="{{article.coverImage[0].url}}" alt="" />
+            <img *ngIf="article.coverImage[0] != null" class="img-fluid" src="{{article.coverImage[0].url}}" alt="" />
             <div class="article-caption-subheading">{{article.value}}</div>
 
             <div class="pdf-view mt-4">

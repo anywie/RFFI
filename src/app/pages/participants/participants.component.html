@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="school_card d-flex p-4" *ngFor="let author of authors" (click)="ShowPopUp(author)">
-            <img class="img-fluid" src="https://sheltered-island-10238.herokuapp.com{{author.photo[0].url}}" alt="" />
+            <img class="img-fluid" src="{{author.photo[0].url}}" alt="" />
             <div class="">
                 <div class="school_title m-3">{{author.authorName}}</div>
                 <div class="school_desc m-3">{{author.email}}</div>
@@ -21,7 +21,7 @@
                     <div class="popup_body">
                         <div class="popup_header mb-3">{{curentPartc.authorName}}</div>
                         <div class="popup_desc d-flex ">
-                            <img class="ml-2" src="../../../assets/images/storm.png" alt="" />
+                            <img class="ml-2" src="{{curentPartc.photo[0].url}}" alt="" />
                             <div class="school_desc m-4">{{curentPartc.description}}</div>
                         </div>
                         <div class="popup_body_additional mt-4">{{curentPartc.education}}</div>
