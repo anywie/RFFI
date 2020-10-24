@@ -24,20 +24,17 @@
 
             <img class="img-fluid" src="{{article.coverImage[0].url}}" alt="" />
             <div class="article-caption-subheading">{{article.value}}</div>
-         
-            <div *ngIf="isLoaded" style="text-align: center;">
-  <button (click)="prevPage()" [disabled]="page === 1">Prev</button>
-  <span>{{ page }} / {{ totalPages }}</span>
-  <button (click)="nextPage()" [disabled]="page === totalPages">Next</button>
-</div>
-             <pdf-viewer [src]="article.pdf[0].url" 
-              
-              [show-borders]="true"
-              [show-all]="false"
-              [original-size]="true"
-              [page]="page"
-              (after-load-complete)="afterLoadComplete($event)"
-              style="display: block;"></pdf-viewer>
+
+            <div class="pdf-view mt-4">
+                <div *ngIf="isLoaded" style="text-align: center;" class="mb-4">
+                    <button mat-flat-button (click)="prevPage()" [disabled]="page === 1" class="mr-2">Prev</button>
+                    <span>{{ page }} / {{ totalPages }}</span>
+                    <button mat-flat-button (click)="nextPage()" [disabled]="page === totalPages" class="ml-2">Next</button>
+                </div>
+                <pdf-viewer [src]="article.pdf[0].url" [show-borders]="true" [show-all]="false" [original-size]="true"
+                    [page]="page" (after-load-complete)="afterLoadComplete($event)" style="display: block;">
+                </pdf-viewer>
+            </div>
         </div>
     </div>
 </div>

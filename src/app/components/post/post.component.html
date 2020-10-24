@@ -15,7 +15,7 @@
                         <div class="post-caption-subheading text-muted">{{content.value}}</div>
                     </div>
                     <div class="post-caption-media" *ngIf="content.coverImage != null ? 'true': ''">
-                        <img class="img-fluid" src="{{content.coverImage[0].url}}" alt="" />
+                        <img *ngIf="content.coverImage[0]!=null" class="img-fluid" src="{{content.coverImage[0].url}}" alt="" />
                     </div>
                 </div>
             </a>
