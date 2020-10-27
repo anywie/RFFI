@@ -5,8 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PostComponent } from './components/post/post.component';
 import { HttpClientModule } from '@angular/common/http';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { FooterComponent } from './footer/footer.component';
+import { NavMenuComponent } from './components/nav-menu/nav-menu.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 // Angular Material
 import { MatButtonModule } from '@angular/material/button';

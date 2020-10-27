@@ -16,7 +16,7 @@
                         <div class="post-caption-subheading text-muted">{{content.value}}</div>
                     </div>
                     <div class="post-caption-media" *ngIf="content.coverImage != null ? 'true': ''">
-                        <img *ngIf="content.coverImage[0]!=null" class="img-fluid" src="{{content.coverImage[0].url}}" alt="" />
+                        <img *ngIf="content.coverImage!=null" class="img-fluid" src="{{content.coverImage.url}}" alt="" />
                     </div>
                 </div>
             </a>
@@ -26,7 +26,6 @@
     <div class = "" *ngFor="let content of currentAuthor">
         <div class="post-item" *ngIf="!boolAuthor && !content.withAuthors">
             <a class="post-link" (click)="goToArticle(content)">
-                <!-- <img class="img-fluid" src="{{post.contents[0].coverImage.url}}" alt="" /> -->
                 <div class="post-caption d-flex">
                     <div class="post-value">
                         <div class="post-header d-flex">
@@ -36,7 +35,7 @@
                             <div class="post-caption-subheading text-muted">{{content.value}}</div>
                         </div>
                         <div class="post-caption-media" *ngIf="content.coverImage != null ? 'true': ''">
-                            <img *ngIf="content.coverImage[0]!=null" class="img-fluid" src="{{content.coverImage[0].url}}" alt="" />
+                            <img *ngIf="content.coverImage!=null" class="img-fluid" src="{{content.coverImage.url}}" alt="" />
                         </div>
                     </div>
                 </a>

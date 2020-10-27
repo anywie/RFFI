@@ -11,7 +11,7 @@
     <!-- </div> -->
     <div class="article_content">
         <div class="article_content-header d-flex" *ngIf="article.authors[0] != null">
-            <img *ngIf="article.authors[0].photo[0] != null" class="img-fluid" src="{{article.authors[0].photo[0].url}}" alt="" />
+            <img *ngIf="article.authors[0].photo != null" class="img-fluid" src="{{article.authors[0].photo.url}}" alt="" />
             <div class="d-flex flex-column">
                 <a>{{article.authors[0].authorName}}</a>
                 <span>{{article.created_at | date}}</span>
@@ -22,7 +22,7 @@
                 <h1>{{article.title}}</h1>
             </div>
 
-            <img *ngIf="article.coverImage[0] != null" class="img-fluid" src="{{article.coverImage[0].url}}" alt="" />
+            <img *ngIf="article.coverImage != null" class="img-fluid" src="{{article.coverImage.url}}" alt="" />
             <div class="article-caption-subheading">{{article.value}}</div>
 
             <div class="pdf-view mt-4">
@@ -31,7 +31,7 @@
                     <span>{{ page }} / {{ totalPages }}</span>
                     <button mat-flat-button (click)="nextPage()" [disabled]="page === totalPages" class="ml-2">Next</button>
                 </div>
-                <pdf-viewer [src]="article.pdf[0].url" [show-borders]="true" [show-all]="false" [original-size]="true"
+                <pdf-viewer [src]="article.pdf.url" [show-borders]="true" [show-all]="false" [original-size]="true"
                     [page]="page" 
                     [zoom] = "0.7"
                     (after-load-complete)="afterLoadComplete($event)" style="display: block;">
