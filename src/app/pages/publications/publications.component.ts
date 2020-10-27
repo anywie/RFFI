@@ -25,6 +25,8 @@ export class PublicationsComponent implements OnInit {
   currItem: any = [];
   getAllposts = true;
 boolAthr = true;
+  // pageType = 'publications';
+  pageType = 1;
 
   @ViewChild('nav', { read: DragScrollComponent }) ds: DragScrollComponent;
   constructor(

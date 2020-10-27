@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ContentService } from '../../services/content.service';
 import { Location } from '@angular/common';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-article',
@@ -17,7 +18,10 @@ export class ArticleComponent implements OnInit {
   totalPages: number;
   isLoaded = false;
 
-  constructor(private activateRoute: ActivatedRoute, private postSvc: ContentService, private location: Location) {
+  // videos
+  dangerousVideoUrl: string;
+  // tslint:disable-next-line:max-line-length
+  constructor(private activateRoute: ActivatedRoute, private sanitizer: DomSanitizer, private postSvc: ContentService, private location: Location) {
 
     // tslint:disable-next-line:no-string-literal
     this.id = activateRoute.snapshot.params['id'];
@@ -45,5 +49,10 @@ export class ArticleComponent implements OnInit {
 
   prevPage(): void {
     this.page--;
+  }
+
+  transform(id: string): any {
+    this.dangerousVideoUrl = 'https://www.youtube.com/embed/' + id;
+    return this.sanitizer.bypassSecurityTrustResourceUrl(this.dangerousVideoUrl);
   }
 }

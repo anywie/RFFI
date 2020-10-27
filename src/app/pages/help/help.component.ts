@@ -10,7 +10,8 @@ import { ContentService } from '../../services/content.service';
   
 export class HelpComponent implements OnInit {
   allPost: any = [];
-boolAthr = false;
+  boolAthr = false;
+  pageType = 2;
   constructor(private allPosts: ContentService, private router: Router) { }
 
   ngOnInit(): void {

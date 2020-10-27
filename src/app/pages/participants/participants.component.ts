@@ -11,6 +11,7 @@ export class ParticipantsComponent implements OnInit {
   showPopUp = false;
   curentPartc: any;
   currItem: any = [];
+  pageType = 1;
   constructor(private pageSvc: GetAllService) {
   }
 

@@ -99,3 +99,11 @@
     }
 }
 
+.pdf-container {
+    position: static;
+    .pdf-view {
+        position: absolute;
+        left: 0;
+        right: 0;
+    }
+}
