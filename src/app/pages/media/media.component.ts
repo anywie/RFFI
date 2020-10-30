@@ -25,6 +25,12 @@ export class MediaComponent implements OnInit {
     this.vid.getAllVideos().subscribe(res => {
       this.videos = res;
     });
+
+    const tag = document.createElement('script');
+
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.body.appendChild(tag);
+
   }
 
   transform(id: string): any {

@@ -23,6 +23,10 @@ import { DragScrollModule } from 'ngx-drag-scroll';
 
 // pdf
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+
+// video
+import { YouTubePlayerModule } from '@angular/youtube-player';
+
 // MDB Angular Free
 // import { WavesModule, ModalModule, CarouselModule } from 'angular-bootstrap-md';
 // components
@@ -77,6 +81,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatTabsModule,
     MatGridListModule,
     PdfViewerModule,
+    YouTubePlayerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
