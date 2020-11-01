@@ -84,6 +84,7 @@
 
     img {
         border-radius: 50%;
+        object-fit: cover;
     }
 
     &:hover {
@@ -126,14 +127,17 @@ drag-scroll {
     .get_all_btn {
         border-radius: 50%;
         background-color: #4AA6FF;
-        padding: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         height: 75px;
         width: 75px;
         margin: auto;
 
         img {
-            width: 100%;
-            height: 100%;
+            width: 55px;
+            height: 45px;
+            border-radius: 0 !important;
         }
 
     }

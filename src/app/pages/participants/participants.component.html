@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="school_card d-flex p-4" *ngFor="let author of authors" (click)="ShowPopUp(author)">
+        <div class="participant_card  d-flex p-4" *ngFor="let author of authors" (click)="ShowPopUp(author)">
             <img class="img-fluid" src="{{author.photo.url}}" alt="" />
             <div class="">
                 <div class="school_title m-3">{{author.authorName}}</div>
@@ -10,29 +10,31 @@
     </div>
 </div>
 
-<div class="overlay" *ngIf="showPopUp">
-    <div class="popup-user">
-        <div class="popup-body">
-            <div class="close-btn" (click)="ShowPopUp()">
-                <i class="fa fa-times" aria-hidden="true"></i>
-            </div>
-            <mat-tab-group animationDuration="0ms" mat-align-tabs="center">
-                <mat-tab label="Профиль">
-                    <div class="popup_body">
-                        <div class="popup_header mb-3">{{curentPartc.authorName}}</div>
-                        <div class="popup_desc d-flex ">
-                            <img class="ml-2" src="{{curentPartc.photo.url}}" alt="" />
-                            <div class="school_desc m-4">{{curentPartc.description}}</div>
+<div class="overlay" *ngIf="showPopUp" >
+    <div class="popup_m">
+        <div class="popup-user">
+            <div class="popup-body">
+                <div class="close-btn" (click)="ShowPopUp()">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </div>
+                <mat-tab-group animationDuration="0ms" mat-align-tabs="center">
+                    <mat-tab label="Профиль">
+                        <div class="popup_body">
+                            <div class="popup_header mb-3">{{curentPartc.authorName}}</div>
+                            <div class="popup_desc d-flex ">
+                                <img class="ml-2" src="{{curentPartc.photo.url}}" alt="" />
+                                <div class="school_desc m-4">{{curentPartc.description}}</div>
+                            </div>
+                            <div class="popup_body_additional mt-4">{{curentPartc.education}}</div>
                         </div>
-                        <div class="popup_body_additional mt-4">{{curentPartc.education}}</div>
-                    </div>
-                </mat-tab>
-                <mat-tab label="Публикации">
-                    <div class="popup_body">
-                        <app-post [currentAuthor]=curentPartc.contents [currentPage]=pageType></app-post>
-                    </div>
-                </mat-tab>
-            </mat-tab-group>
+                    </mat-tab>
+                    <mat-tab label="Публикации">
+                        <div class="popup_body">
+                            <app-post [currentAuthor]=curentPartc.contents [currentPage]=pageType></app-post>
+                        </div>
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
         </div>
     </div>
 </div>

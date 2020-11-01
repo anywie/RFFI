@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { GetAllService } from 'src/app/services/get-all.service';
 
 @Component({
@@ -6,7 +6,7 @@ import { GetAllService } from 'src/app/services/get-all.service';
   templateUrl: './participants.component.html',
   styleUrls: ['./participants.component.scss']
 })
-export class ParticipantsComponent implements OnInit {
+export class ParticipantsComponent implements OnInit {  
   authors: any = [];
   showPopUp = false;
   curentPartc: any;
@@ -24,7 +24,15 @@ export class ParticipantsComponent implements OnInit {
 
   ShowPopUp(author: any): void{
     this.showPopUp = !this.showPopUp;
-    this.curentPartc = author;
-    this.currItem = author.contents;
+    const body = document.getElementsByTagName('body')[0];
+    if (this.showPopUp) {
+      this.curentPartc = author;
+      this.currItem = author.contents;
+      body.style.overflowY = 'hidden';
+    }
+    else {
+      body.style.overflowY = 'auto';
+    }
   }
+
 }

@@ -1,0 +1,25 @@
+.media-description {
+    font-size: 18px;
+    line-height: normal;
+
+    .media_header {
+        font-weight: 500;
+        color: #4A699C;
+    }
+
+    .media_body {
+
+        .media_body-date {
+            padding: 5px 0;
+            font-size: 14px;
+        }
+
+        .media_body-desc {
+            max-height: 36px;
+            font-size: 0.9375rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 10px;
+        }
+    }
+}
