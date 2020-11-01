@@ -50,9 +50,14 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  line-height: normal;
+  font-weight: normal;
+  font-size: 1rem;
 }
 
 a,
 button {
   outline: none !important;
 }
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

@@ -43,7 +43,9 @@ import { ContactsComponent } from './pages/contacts/contacts.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatTabsModule } from '@angular/material/tabs';
 import {MatGridListModule} from '@angular/material/grid-list';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// go to top
+import { GoTopButtonModule } from 'ng-go-top-button';
 @NgModule({
   declarations: [
     AppComponent,
@@ -81,7 +83,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatTabsModule,
     MatGridListModule,
     PdfViewerModule,
-    YouTubePlayerModule
+    YouTubePlayerModule,
+    NgbModule,
+    GoTopButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

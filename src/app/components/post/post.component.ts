@@ -21,7 +21,8 @@ export class PostComponent implements OnInit {
   authorName = "";
   @Input() currentAuthor: any[];
   @Input() currentPage: number; // id
-
+  page = 1;
+  pageSize = 7;
   constructor(private contentSvc: ContentService, private authorSvc: GetAllService, private router: Router) { }
 
   ngOnInit(): void {
@@ -31,11 +32,9 @@ export class PostComponent implements OnInit {
     this.contentSvc.getAllContents().subscribe(res => {
       this.posts = res;
     });
-    console.log(this.currentPage);
   }
 
   goToArticle(myItem: Item): void {
-
     this.router.navigate(
       ['/article', myItem.id]
     );

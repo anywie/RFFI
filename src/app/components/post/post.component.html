@@ -1,6 +1,6 @@
 <div class="row">
     <div class="post-column">
-        <div class = "" *ngFor="let content of currentAuthor">
+        <div class = "" *ngFor="let content of currentAuthor | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
             <div *ngIf="content.page!=null && (content.page==currentPage || content.page.id == currentPage)" class="post-item" >
                 <a class="post-link" (click)="goToArticle(content)">
                 <!-- <img class="img-fluid" src="{{post.contents[0].coverImage.url}}" alt="" /> -->
@@ -22,24 +22,8 @@
             </a>
         </div>
     </div>
-
-    <!-- <div class = "" *ngFor="let content of currentAuthor">
-        <div class="post-item" *ngIf="!boolAuthor && !content.withAuthors">
-            <a class="post-link" (click)="goToArticle(content)">
-                <div class="post-caption d-flex">
-                    <div class="post-value">
-                        <div class="post-header d-flex">
-                            <div class="post-caption-date">{{content.created_at | date}}</div>
-                            </div>
-                            <div class="post-caption-heading">{{content.title}}</div>
-                            <div class="post-caption-subheading text-muted">{{content.value}}</div>
-                        </div>
-                        <div class="post-caption-media" *ngIf="content.coverImage != null ? 'true': ''">
-                            <img *ngIf="content.coverImage!=null" class="img-fluid" src="{{content.coverImage.url}}" alt="" />
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div> -->
 </div>
+
+<ngb-pagination [collectionSize]="currentAuthor.length" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false"
+    [boundaryLinks]="true" class="ml-auto"></ngb-pagination>
+    
