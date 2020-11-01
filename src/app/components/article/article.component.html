@@ -1,4 +1,5 @@
 <!-- <div class="buttons-back"> -->
+<div class="overlay-article"></div>
 <div class="container">
     <div class="back_btn" (click)="backClicked()">
         <div class="btn_group">
@@ -25,7 +26,7 @@
             <img *ngIf="article.coverImage != null" class="img-fluid" src="{{article.coverImage.url}}" alt="" />
             <div class="article-caption-subheading">{{article.value}}</div>
 
-            <h4  *ngIf="article.youtubeShortUrl != null" class="m-3" >Посмотрите видео!</h4>
+            <h4 *ngIf="article.youtubeShortUrl != null" class="m-3">Посмотрите видео!</h4>
             <div class="" *ngIf="article.youtubeShortUrl != null">
                 <div class=" embed-responsive embed-responsive-16by9">
                     <iframe class="embed-responsive-item" [src]='transform(article.youtubeShortUrl)'></iframe>
