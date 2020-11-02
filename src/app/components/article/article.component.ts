@@ -32,6 +32,11 @@ export class ArticleComponent implements OnInit {
     this.postSvc.getContent(this.id).subscribe(res => {
       this.article = res;
     });
+
+    const tag = document.createElement('script');
+
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.body.appendChild(tag);
   }
 
   backClicked(): void {

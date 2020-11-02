@@ -11,7 +11,7 @@
     <i class="material-icons close_btn mr-5" (click)="backClicked()">close</i>
     <!-- </div> -->
     <div class="article_content">
-        <div class="article_content-header d-flex" *ngIf="article.authors[0] != null">
+        <div class="article_content-header d-flex" *ngIf="article.author != null">
             <img *ngIf="article.authors[0].photo != null" class="img-fluid" src="{{article.authors[0].photo.url}}"
                 alt="" />
             <div class="d-flex flex-column">
@@ -24,17 +24,18 @@
                 <h1>{{article.title}}</h1>
             </div>
             <img *ngIf="article.coverImage != null" class="img-fluid" src="{{article.coverImage.url}}" alt="" />
+    
             <div class="article-caption-subheading">{{article.value}}</div>
 
-            <h4 *ngIf="article.youtubeShortUrl != null" class="m-3">Посмотрите видео!</h4>
-            <div class="" *ngIf="article.youtubeShortUrl != null">
-                <div class=" embed-responsive embed-responsive-16by9">
-                    <iframe class="embed-responsive-item" [src]='transform(article.youtubeShortUrl)'></iframe>
+            <h4 *ngIf="article.medis != null" class="m-3">Посмотрите видео!</h4>
+            <div class="" *ngIf="article.medis != null">
+                <div class=" embed-responsive embed-responsive-16by9" *ngFor="let videos of article.medis">
+                    <youtube-player [videoId]="videos.url"></youtube-player>
                 </div>
             </div>
         </div>
 
-        <div class="pdf-container">
+        <div class="pdf-container" *ngIf="article.pdf != null">
             <div class="pdf-view m-4">
                 <div *ngIf="isLoaded" style="text-align: center;" class="mb-4">
                     <button mat-flat-button (click)="prevPage()" [disabled]="page === 1" class="mr-2">Prev</button>

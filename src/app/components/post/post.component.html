@@ -1,6 +1,6 @@
 <div class="row">
     <div class="post-column">
-        <div class = "" *ngFor="let content of currentAuthor | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+        <div class = "" *ngFor="let content of currentAuthor ">
             <div *ngIf="content.page!=null && (content.page==currentPage || content.page.id == currentPage)" class="post-item" >
                 <a class="post-link" (click)="goToArticle(content)">
                 <!-- <img class="img-fluid" src="{{post.contents[0].coverImage.url}}" alt="" /> -->
@@ -24,6 +24,7 @@
     </div>
 </div>
 
-<ngb-pagination [collectionSize]="currentAuthor.length" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false"
+<ngb-pagination *ngIf="false" [collectionSize]="currentAuthor.length" [(page)]="page" [maxSize]="5" [rotate]="true" [ellipses]="false"
     [boundaryLinks]="true" class="ml-auto"></ngb-pagination>
+
     
