@@ -16,9 +16,10 @@ export class ParticipantsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.pageSvc.getAllAuthors().subscribe(res => {
-      this.authors = res;
-    });
+    // this.pageSvc.getAllAuthors().subscribe(res => {
+    //   this.authors = res;
+    // });
+    this.authors = this.pageSvc.getAllAuthors();
     this.curentPartc = this.authors[0];
   }
 
