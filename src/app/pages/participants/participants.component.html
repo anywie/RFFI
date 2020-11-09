@@ -1,6 +1,6 @@
 <div class="container">
     <div class="row">
-        <div class="participant_card  d-flex p-4" *ngFor="let author of authors" (click)="ShowPopUp(author)">
+        <div class="participant_card  d-flex p-4" *ngFor="let author of authors | async" (click)="ShowPopUp(author)">
             <img class="img-fluid" src="{{author.photo.url}}" alt="" />
             <div class="">
                 <div class="school_title m-3">{{author.authorName}}</div>

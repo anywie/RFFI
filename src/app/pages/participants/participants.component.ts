@@ -10,7 +10,8 @@ export class ParticipantsComponent implements OnInit {
   authors: any = [];
   showPopUp = false;
   curentPartc: any;
-  currItem: any = [];
+  currItem: Promise<any>;
+  // currItem: any = [];
   pageType = 1;
   constructor(private pageSvc: GetAllService) {
   }
