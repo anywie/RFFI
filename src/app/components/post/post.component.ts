@@ -14,7 +14,8 @@ export class Item {
   styleUrls: ['./post.component.scss']
 })
 export class PostComponent implements OnInit {
-  posts: any = [];
+  // posts: any = [];
+  posts: Promise<any>;
   // post: any;
   landingPostId = 2;
   item: Item = new Item();
@@ -29,9 +30,11 @@ export class PostComponent implements OnInit {
     // this.postSvc.getPost(this.landingPostId).subscribe(res => {
     //   this.post = res;
     // });
-    this.contentSvc.getAllContents().subscribe(res => {
-      this.posts = res;
-    });
+
+    this.posts = this.contentSvc.getAllContents();
+    // this.contentSvc.getAllContents().subscribe(res => {
+    //   this.posts = res;
+    // });
   }
 
   goToArticle(myItem: Item): void {

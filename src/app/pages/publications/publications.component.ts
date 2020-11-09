@@ -6,19 +6,23 @@ import { ContentService } from 'src/app/services/content.service';
 import { DragScrollComponent } from 'ngx-drag-scroll';
 import { GetAllService } from '../../services/get-all.service';
 import { environment } from '../../../environments/environment';
-
+import { Observable } from 'rxjs';
 @Component({
   selector: 'app-publications',
   templateUrl: './publications.component.html',
   styleUrls: ['./publications.component.scss'],
-  viewProviders: [MatIconRegistry]
+  viewProviders: [MatIconRegistry],
+  providers: [GetAllService]
 })
 export class PublicationsComponent implements OnInit {
   hideScrollbar;
   disabled;
   xDisabled;
   yDisabled;
-  imagelist: any = [];
+  // imagelist: any = [];
+  // tslint:disable-next-line:ban-types
+  imagelist: Promise<any>;
+  // imagelist: Observable<Object>;
   leftNavDisabled = false;
   rightNavDisabled = false;
   index = 0;
@@ -36,14 +40,14 @@ boolAthr = true;
   ) { }
   // constructor() { }
   ngOnInit(): void {
-    this.authorSvc.getAllAuthors().subscribe(res => {
-      this.imagelist = res;
-    });
-    // this.firstRender.getAuthors(2).subscribe(res => {
-    //   this.currItem = res;
-    // });
+    // this.authorSvc.getAllAuthors().subscribe(res => {
+    //   this.imagelist = res;
+    // }, error => console.log(error));
+   
+    this.imagelist = this.authorSvc.getAllAuthors();
+    // this.currItem = this.contentSvc.getAllContents();
     this.contentSvc.getAllContents().subscribe(res => {
-      this.currItem = res; // ???
+      this.currItem = res; 
     });
   }
 
@@ -64,9 +68,6 @@ boolAthr = true;
     this.getAllposts = true;
   }
 
-  remove(): void {
-    this.imagelist.pop();
-  }
 
   toggleHideSB(): void {
     this.hideScrollbar = !this.hideScrollbar;
