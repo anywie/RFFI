@@ -26,16 +26,19 @@
     height: 100%;
     padding: 10px 0 30px;
 
+    .post-value {
+        margin-top: 20px;
+    }
+
     .post-caption-heading {
         color: #222793;
         font-weight: 500;
         font-size: 16px;
-        margin-top: 20px;
         // margin-right: 4px;
         display: inline-block;
     }
 
-    .post-caption-subheading{
+    .post-caption-subheading {
         display: inline;
     }
 }
