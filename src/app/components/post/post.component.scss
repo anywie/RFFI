@@ -41,6 +41,7 @@
         flex-grow: 1;
         margin-right: 37px;
         width: 100%;
+        max-width: calc(100% - 189px);
     }
 
     .post-caption-heading {

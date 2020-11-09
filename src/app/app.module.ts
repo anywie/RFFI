@@ -46,6 +46,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // go to top
 import { GoTopButtonModule } from 'ng-go-top-button';
+import { AuthorComponent } from './pages/participants/author/author.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +63,7 @@ import { GoTopButtonModule } from 'ng-go-top-button';
     PublicationsComponent,
     ArticleComponent,
     ContactsComponent,
+    AuthorComponent,
   ],
   imports: [
     BrowserModule,

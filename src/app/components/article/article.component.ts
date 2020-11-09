@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ContentService } from '../../services/content.service';
 import { Location } from '@angular/common';
@@ -9,7 +9,7 @@ import { DomSanitizer } from '@angular/platform-browser';
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.scss']
 })
-export class ArticleComponent implements OnInit {
+export class ArticleComponent implements OnInit, AfterViewInit {
 
   id: any;
   article: any;
@@ -25,7 +25,6 @@ export class ArticleComponent implements OnInit {
 
     // tslint:disable-next-line:no-string-literal
     this.id = activateRoute.snapshot.params['id'];
-    console.log(this.activateRoute);
   }
 
   ngOnInit(): void {
@@ -37,13 +36,18 @@ export class ArticleComponent implements OnInit {
 
     tag.src = "https://www.youtube.com/iframe_api";
     document.body.appendChild(tag);
-  }
+    //
 
+    const t = this.article.hasOwnProperty('authors');
+    console.log("wow" + t);
+  }
+  ngAfterViewInit(): void {
+  }
   backClicked(): void {
     this.location.back();
   }
 
-    afterLoadComplete(pdfData: any): void {
+  afterLoadComplete(pdfData: any): void {
     this.totalPages = pdfData.numPages;
     this.isLoaded = true;
   }
