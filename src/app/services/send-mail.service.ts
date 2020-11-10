@@ -17,6 +17,6 @@ export class SendMailService {
       subject: form.subject, name: form.name, email: form.email,
       phone: form.phone, message: form.message
     };
-    return this.http.post('http://localhost:1337/email', body);
+    return this.http.post(`${environment.apiUrl}/email`, body);
   }
 }
