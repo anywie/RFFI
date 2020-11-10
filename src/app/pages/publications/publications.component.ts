@@ -26,7 +26,7 @@ export class PublicationsComponent implements OnInit {
   leftNavDisabled = false;
   rightNavDisabled = false;
   index = 0;
-  currItem: any = [];
+  currItem: Promise<any>;
   getAllposts = true;
 boolAthr = true;
   // pageType = 'publications';
@@ -45,10 +45,10 @@ boolAthr = true;
     // }, error => console.log(error));
    
     this.imagelist = this.authorSvc.getAllAuthors();
-    // this.currItem = this.contentSvc.getAllContents();
-    this.contentSvc.getAllContents().subscribe(res => {
-      this.currItem = res; 
-    });
+    this.currItem = this.contentSvc.getAllContents();
+    // this.contentSvc.getAllContents().subscribe(res => {
+    //   this.currItem = res; 
+    // });
   }
 
   // ngAfterViewChecked(): void {
@@ -62,9 +62,7 @@ boolAthr = true;
     this.getAllposts = false;
   }
   getAllPost(): void {
-    this.contentSvc.getAllContents().subscribe(res => {
-      this.currItem = res;
-    });
+    this.currItem = this.contentSvc.getAllContents();
     this.getAllposts = true;
   }
 

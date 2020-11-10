@@ -20,6 +20,8 @@ export class ArticleComponent implements OnInit, AfterViewInit {
 
   // videos
   dangerousVideoUrl: string;
+  // authors
+  afterViewInit: any;
   // tslint:disable-next-line:max-line-length
   constructor(private activateRoute: ActivatedRoute, private sanitizer: DomSanitizer, private postSvc: ContentService, private location: Location) {
 
@@ -29,7 +31,7 @@ export class ArticleComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.postSvc.getContent(this.id).subscribe(res => {
-      this.article = res;
+      this.article = res; 
     });
 
     const tag = document.createElement('script');
@@ -38,10 +40,9 @@ export class ArticleComponent implements OnInit, AfterViewInit {
     document.body.appendChild(tag);
     //
 
-    const t = this.article.hasOwnProperty('authors');
-    console.log("wow" + t);
   }
-  ngAfterViewInit(): void {
+  ngAfterViewInit(): void { 
+    console.log(this.article);
   }
   backClicked(): void {
     this.location.back();

@@ -1,53 +1,55 @@
-<!-- <div class="buttons-back"> -->
-<div class="overlay-article"></div>
-<div class="container">
-    <div class="back_btn" (click)="backClicked()">
-        <div class="btn_group">
-            <i class="material-icons">navigate_before</i>
-            <span>Назад</span>
-        </div>
-    </div>
-
-    <i class="material-icons close_btn mr-5" (click)="backClicked()">close</i>
-    <!-- </div> -->
-    <div class="article_content">
-        <div class="article_content-header d-flex" *ngIf="article.hasOwnProperty('authors') && article.page.id != 2 ">
-            <img *ngIf="article.authors[0].photo != null" class="img-fluid" src="{{article.authors[0].photo.url}}"
-                alt="" />
-                <div class="d-flex flex-column">
-                <a>{{article.authors[0].authorName}}</a>
-                <span>{{article.created_at | date}}</span>
+<div class="buttons-back">
+    <div class="overlay-article"></div>
+    <div class="container">
+        <div class="back_btn" (click)="backClicked()">
+            <div class="btn_group">
+                <i class="material-icons">navigate_before</i>
+                <span>Назад</span>
             </div>
         </div>
-        <div class="article-view">
-            <div class="article-caption-heading">
-                <h1>{{article.title}}</h1>
-            </div>
-            <img *ngIf="article.coverImage != null" class="img-fluid" src="{{article.coverImage.url}}" alt="" />
-    
-            <div class="article-caption-subheading">{{article.value}}</div>
 
-           
-            <div class="" *ngIf="article.medis != null">
-                <h4 class="m-3">Посмотрите видео!</h4>
-                <div class=" embed-responsive embed-responsive-16by9" *ngFor="let videos of article.medis">
-                    <youtube-player [videoId]="videos.url"></youtube-player>
+        <i class="material-icons close_btn mr-5" (click)="backClicked()">close</i>
+        <!-- </div> -->
+        <div class="article_content">
+            <div class="" *ngIf="article.page.id != 2 ">
+                <div class="article_content-header d-flex" *ngFor="let author of article.authors ">
+                    <img *ngIf="author.photo != null" class="img-fluid" src="{{author.photo.url}}"
+                        alt="" />
+                    <div class="d-flex flex-column">
+                        <a>{{author.authorName}}</a>
+                        <span>{{article.created_at | date}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="article-view">
+                <div class="article-caption-heading">
+                    <h1>{{article.title}}</h1>
+                </div>
+                <img *ngIf="article.coverImage != null" class="img-fluid" src="{{article.coverImage.url}}" alt="" />
+
+                <div class="article-caption-subheading">{{article.value}}</div>
+
+
+                <div class="" *ngFor="let videos of article.medis">
+                    <h4 class="m-3">Посмотрите видео!</h4>
+                    <div class=" embed-responsive embed-responsive-16by9" *ngFor="let videos of article.medis">
+                        <youtube-player [videoId]="videos.url"></youtube-player>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pdf-container" *ngIf="article.pdf != null">
+                <div class="pdf-view m-4">
+                    <div *ngIf="isLoaded" style="text-align: center;" class="mb-4">
+                        <button mat-flat-button (click)="prevPage()" [disabled]="page === 1" class="mr-2">Prev</button>
+                        <span>{{ page }} / {{ totalPages }}</span>
+                        <button mat-flat-button (click)="nextPage()" [disabled]="page === totalPages"
+                            class="ml-2">Next</button>
+                    </div>
+                    <pdf-viewer [src]="article.pdf.url" [show-borders]="true" [show-all]="false" [original-size]="true"
+                        [page]="page" (after-load-complete)="afterLoadComplete($event)" style="display: block;">
+                    </pdf-viewer>
                 </div>
             </div>
         </div>
-
-        <div class="pdf-container" *ngIf="article.pdf != null">
-            <div class="pdf-view m-4">
-                <div *ngIf="isLoaded" style="text-align: center;" class="mb-4">
-                    <button mat-flat-button (click)="prevPage()" [disabled]="page === 1" class="mr-2">Prev</button>
-                    <span>{{ page }} / {{ totalPages }}</span>
-                    <button mat-flat-button (click)="nextPage()" [disabled]="page === totalPages"
-                        class="ml-2">Next</button>
-                </div>
-                <pdf-viewer [src]="article.pdf.url" [show-borders]="true" [show-all]="false" [original-size]="true"
-                    [page]="page" (after-load-complete)="afterLoadComplete($event)" style="display: block;">
-                </pdf-viewer>
-            </div>
-        </div>
     </div>
-</div>

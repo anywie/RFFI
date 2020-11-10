@@ -9,14 +9,15 @@ import { ContentService } from '../../services/content.service';
 })
   
 export class HelpComponent implements OnInit {
-  allPost: any = [];
+  allPost: Promise<any>;
   boolAthr = false;
   pageType = 2;
   constructor(private allPosts: ContentService, private router: Router) { }
 
   ngOnInit(): void {
-    this.allPosts.getAllContents().subscribe(res => {
-      this.allPost = res;
-    });
+    // this.allPosts.getAllContents().subscribe(res => {
+    //   this.allPost = res;
+    // });
+    this.allPost = this.allPosts.getAllContents();
   }
 }

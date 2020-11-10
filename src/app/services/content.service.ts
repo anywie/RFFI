@@ -10,8 +10,15 @@ export class ContentService {
 
   constructor(private http: HttpClient) { }
 
-  getAllContents(): any {
-    return this.http.get(`${environment.apiUrl}/contents`).pipe(map(res => res));
+  async getAllContents(): Promise<any>{
+    try {
+      // tslint:disable-next-line:prefer-const
+      let res = await this.http
+        .get(`${environment.apiUrl}/contents`)
+        .toPromise();
+      return res;
+    } catch (error) {}
+    // return this.http.get(`${environment.apiUrl}/contents`).pipe(map(res => res));
   }
 
   getContent(contentId): any {

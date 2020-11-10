@@ -28,7 +28,10 @@ const routes: Routes = [
   { path: 'participant/:id/info', component: ParticipantsComponent },
   { path: 'participant/:id/publications', component: ParticipantsComponent },
   { path: 'project', component: ProjectComponent },
-  { path: 'publications', component: PublicationsComponent },
+  {
+    path: 'publications',
+    component: PublicationsComponent
+  },
   { path: 'article/:id', component: ArticleComponent },
   { path: 'contacts', component: ContactsComponent },
 ];
