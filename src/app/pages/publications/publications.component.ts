@@ -19,16 +19,15 @@ export class PublicationsComponent implements OnInit {
   disabled;
   xDisabled;
   yDisabled;
-  // imagelist: any = [];
-  // tslint:disable-next-line:ban-types
-  imagelist: Promise<any>;
+  imagelist: any = [];
   // imagelist: Observable<Object>;
   leftNavDisabled = false;
   rightNavDisabled = false;
   index = 0;
-  currItem: Promise<any>;
+  // currItem: Observable<Object>;
+  currItem: any[];
   getAllposts = true;
-boolAthr = true;
+  boolAthr = true;
   // pageType = 'publications';
   pageType = 1;
 
@@ -40,15 +39,15 @@ boolAthr = true;
   ) { }
   // constructor() { }
   ngOnInit(): void {
-    // this.authorSvc.getAllAuthors().subscribe(res => {
-    //   this.imagelist = res;
-    // }, error => console.log(error));
-   
-    this.imagelist = this.authorSvc.getAllAuthors();
-    this.currItem = this.contentSvc.getAllContents();
-    // this.contentSvc.getAllContents().subscribe(res => {
-    //   this.currItem = res; 
-    // });
+    this.authorSvc.getAllAuthors().subscribe(res => {
+      this.imagelist = res;
+    });
+
+    // this.imagelist = this.authorSvc.getAllAuthors();
+    // this.currItem = this.authorSvc.getAllContents();
+    this.authorSvc.getAllContents().subscribe(res => {
+      this.currItem = res; 
+    });
   }
 
   // ngAfterViewChecked(): void {
@@ -62,7 +61,9 @@ boolAthr = true;
     this.getAllposts = false;
   }
   getAllPost(): void {
-    this.currItem = this.contentSvc.getAllContents();
+    this.authorSvc.getAllContents().subscribe(res => {
+      this.currItem = res;
+    });
     this.getAllposts = true;
   }
 

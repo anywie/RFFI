@@ -1,6 +1,6 @@
 <div class="row">
     <div class="post-column">
-        <div class = "" *ngFor="let content of currentAuthor | async">
+        <div *ngFor="let content of currentAuthor ">
             <div *ngIf="content.page!=null && (content.page==currentPage || content.page.id == currentPage)" class="post-item" >
                 <a class="post-link" (click)="goToArticle(content)">
                 <!-- <img class="img-fluid" src="{{post.contents[0].coverImage.url}}" alt="" /> -->

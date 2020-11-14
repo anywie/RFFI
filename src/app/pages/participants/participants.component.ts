@@ -1,4 +1,5 @@
 import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { GetAllService } from 'src/app/services/get-all.service';
 
 @Component({
@@ -6,14 +7,13 @@ import { GetAllService } from 'src/app/services/get-all.service';
   templateUrl: './participants.component.html',
   styleUrls: ['./participants.component.scss']
 })
-export class ParticipantsComponent implements OnInit {  
+export class ParticipantsComponent implements OnInit {
   authors: any = [];
-  showPopUp = false;
   curentPartc: any;
   currItem: Promise<any>;
   // currItem: any = [];
   pageType = 1;
-  constructor(private pageSvc: GetAllService) {
+  constructor(private pageSvc: GetAllService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -24,17 +24,10 @@ export class ParticipantsComponent implements OnInit {
     this.curentPartc = this.authors[0];
   }
 
-  ShowPopUp(author: any): void{
-    this.showPopUp = !this.showPopUp;
-    const body = document.getElementsByTagName('body')[0];
-    if (this.showPopUp) {
-      this.curentPartc = author;
-      this.currItem = author.contents;
-      body.style.overflowY = 'hidden';
-    }
-    else {
-      body.style.overflowY = 'auto';
-    }
+  RedirectToAuthor(author: any): void {
+    this.router.navigate(
+      ['/participant', author.id]
+    );
   }
 
 }

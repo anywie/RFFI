@@ -10,6 +10,7 @@ import { IndexComponent } from './pages/index/index.component';
 import { PublicationsComponent } from './pages/publications/publications.component';
 import { ArticleComponent } from './components/article/article.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
+import { AuthorComponent } from './pages/participants/author/author.component';
 
 const routerOptions: ExtraOptions = {
   scrollPositionRestoration: 'enabled',
@@ -25,8 +26,8 @@ const routes: Routes = [
   { path: 'links', component: LinkToSchoolComponent },
   { path: 'help', component: HelpComponent },
   { path: 'participant', component: ParticipantsComponent },
-  { path: 'participant/:id/info', component: ParticipantsComponent },
-  { path: 'participant/:id/publications', component: ParticipantsComponent },
+  { path: 'participant/:id', component: AuthorComponent },
+  { path: 'participant/:id/public', component: AuthorComponent },
   { path: 'project', component: ProjectComponent },
   {
     path: 'publications',
@@ -34,6 +35,7 @@ const routes: Routes = [
   },
   { path: 'article/:id', component: ArticleComponent },
   { path: 'contacts', component: ContactsComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full'  },
 ];
 
 @NgModule({

@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { Component, Input, OnInit } from '@angular/core';
 import { ContentService } from 'src/app/services/content.service';
 import { GetAllService } from 'src/app/services/get-all.service';
@@ -31,10 +32,10 @@ export class PostComponent implements OnInit {
     //   this.post = res;
     // });
 
-    this.posts = this.contentSvc.getAllContents();
-    // this.contentSvc.getAllContents().subscribe(res => {
-    //   this.posts = res;
-    // });
+    // this.posts = this.contentSvc.getAllContents();
+    this.authorSvc.getAllContents().subscribe(res => {
+      this.posts = res;
+    });
   }
 
   goToArticle(myItem: Item): void {

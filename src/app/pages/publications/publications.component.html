@@ -17,7 +17,7 @@
                     <div class="author_name">Показать всех</div>
                 <!-- </div> -->
             </div>
-            <div drag-scroll-item *ngFor="let image of imagelist | async" class="drag_scroll_item" (click)="clickItem(image)"
+            <div drag-scroll-item *ngFor="let image of imagelist " class="drag_scroll_item" (click)="clickItem(image)"
                 [ngClass]="currItem==image.contents ? 'active-img' : ''">
                 <!-- <div class="d-flex flex-column"> -->
                     <img src="{{image.photo.url}}" />

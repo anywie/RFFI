@@ -1,1 +1,17 @@
-<p>author works!</p>
+<mat-tab-group animationDuration="0ms" mat-align-tabs="center">
+    <mat-tab  label="Профиль" >
+        <div class="author_body">
+            <div class="author_header mb-3">{{author.authorName}}</div>
+            <div class="author_desc d-flex ">
+                <img class="ml-2" src="{{author.photo.url}}" alt="" />
+                <div class="author_desc-text ">{{author.description}}</div>
+            </div>
+            <div class="author_body_additional mt-4">{{author.education}}</div>
+        </div>
+    </mat-tab>
+    <mat-tab label="Публикации">
+        <div class="author_body">
+            <app-post [currentAuthor]=author.contents [currentPage]=pageType></app-post>
+        </div>
+    </mat-tab>
+</mat-tab-group>

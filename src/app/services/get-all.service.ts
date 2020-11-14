@@ -16,33 +16,27 @@ export class GetAllService {
   }
 
   // tslint:disable-next-line:ban-types
-  async getAllAuthors(): Promise<any> {
-    try {
-      // tslint:disable-next-line:prefer-const
-      let res = await this.http
-        .get(`${environment.apiUrl}/authors`)
-        .toPromise();
-      return res;
-    } catch (error) {
-     
-    }
-    // return this.http.get(`${environment.apiUrl}/authors`).pipe(map(res => res));
-  }
+  // async getAllAuthors(): Promise<any> {
+  //   try {
+  //     // tslint:disable-next-line:prefer-const
+  //     let res = await this.http
+  //       .get(`${environment.apiUrl}/authors`)
+  //       .toPromise();
+  //     return res;
+  //   } catch (error) {
+
+  //   }
+  // }
 
   getAuthor(contentId): any {
     return this.http.get(`${environment.apiUrl}/authors/${contentId}`).pipe(map(res => res));
   }
 
-  async getAllContents(): Promise<any> { // all articles
-    try {
-      // tslint:disable-next-line:prefer-const
-      let res = await this.http
-        .get(`${environment.apiUrl}/all-contents`)
-        .toPromise();
-      return res;
-    } catch (error) {
-    }
+  getAllContents(): any {
+    return this.http.get(`${environment.apiUrl}/contents`).pipe(map(res => res));
+  }
 
-    // return this.http.get(`${environment.apiUrl}/all-contents`).pipe(map(res => res));
+  getAllAuthors(): any {
+    return this.http.get(`${environment.apiUrl}/authors`).pipe(map(res => res));
   }
 }
