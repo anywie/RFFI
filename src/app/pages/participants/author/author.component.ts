@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GetAllService } from '../../../services/get-all.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-author',
@@ -13,7 +14,7 @@ export class AuthorComponent implements OnInit {
   pageType = 1;
 // pagetype 2
 
-  constructor(private activateRoute: ActivatedRoute, private getAuthor: GetAllService) { 
+  constructor(private activateRoute: ActivatedRoute, private getAuthor: GetAllService, private location: Location) { 
     this.id = activateRoute.snapshot.params.id;
   }
 
@@ -23,4 +24,7 @@ export class AuthorComponent implements OnInit {
     });
   }
 
+  backClicked(): void {
+    this.location.back();
+  }
 }

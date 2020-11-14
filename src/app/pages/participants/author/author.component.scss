@@ -1,5 +1,6 @@
 .author_body {
     padding: 10px 0 55px;
+    overflow: hidden;
 
     .author_header {
         font-size: 24px;
@@ -22,4 +23,11 @@
 
 .author_desc-text {
     padding: 0 20px 0 50px;
+}
+
+.back_btn{
+    font-size: 14px;
+    i{
+        margin-right: 4px;
+    }
 }

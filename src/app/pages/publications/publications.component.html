@@ -18,7 +18,7 @@
                 <!-- </div> -->
             </div>
             <div drag-scroll-item *ngFor="let image of imagelist " class="drag_scroll_item" (click)="clickItem(image)"
-                [ngClass]="currItem==image.contents ? 'active-img' : ''">
+                [ngClass]="currItem===image.contents ? 'active-img' : ''">
                 <!-- <div class="d-flex flex-column"> -->
                     <img src="{{image.photo.url}}" />
                     <div class="author_name">{{image.authorName}}</div>
