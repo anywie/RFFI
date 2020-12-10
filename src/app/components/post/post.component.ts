@@ -17,6 +17,7 @@ export class Item {
 export class PostComponent implements OnInit {
   // posts: any = [];
   posts: Promise<any>;
+  postCount: number;
   // post: any;
   landingPostId = 2;
   item: Item = new Item();
@@ -36,11 +37,24 @@ export class PostComponent implements OnInit {
     this.authorSvc.getAllContents().subscribe(res => {
       this.posts = res;
     });
+
+    this.authorSvc.getCountContents().subscribe(res => {
+      this.postCount = res;
+    });
+
   }
 
   goToArticle(myItem: Item): void {
     this.router.navigate(
       ['/article', myItem.id]
     );
+  }
+
+  getPostCount(): number {
+    // for (let i; i < this.postCount; i++){
+    //   if()content.page === currentPage
+    //   let ii = 0;
+    // }
+    return 0;
   }
 }

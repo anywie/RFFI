@@ -36,6 +36,10 @@ export class GetAllService {
     return this.http.get(`${environment.apiUrl}/contents`).pipe(map(res => res));
   }
 
+  getCountContents(): any{
+    return this.http.get(`${environment.apiUrl}/contents/count`).pipe(map(res => res));
+  }
+  
   getAllAuthors(): any {
     return this.http.get(`${environment.apiUrl}/authors`).pipe(map(res => res));
   }
